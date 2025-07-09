@@ -1,9 +1,10 @@
 import DashboardCard from "../components/DashboardCard";
 
 const AdminDashboard = () => {
+  const name = localStorage.getItem("name")
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-100 to-pink-100 p-8">
-      <h1 className="text-4xl font-bold text-purple-700 mb-6">Welcome, Admin!</h1>
+      <h1 className="text-4xl font-bold text-purple-700 mb-6">Welcome, {name!="undefined"?name:`Teacher`} !</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <DashboardCard

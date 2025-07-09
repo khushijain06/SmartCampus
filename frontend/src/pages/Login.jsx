@@ -15,11 +15,12 @@ const Login = () => {
       });
       console.log("token", res.data.token)
       console.log("role",res.data.user.role)
+      console.log("name",res.data.user.name)
       localStorage.setItem("token", res.data.token);
-      localStorage.setItem("role",res.data.user.role)
+      localStorage.setItem("role",res.data.user.role);
+      localStorage.setItem("name",res.data.user.name);
       alert("Login successful!");
       (res.data.user.role=="student")?navigate('/studentdashboard'):navigate('/admindashboard')
-      
       // redirect to dashboard or homepage
     } catch (err) {
       console.error(err);

@@ -4,15 +4,17 @@ import campus from "../assets/campus.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const [name, setname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("student");
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:5000/api/auth/register", {
+        name,
         email,
         password,
         role,
@@ -46,6 +48,17 @@ const navigate = useNavigate();
           <h2 className="text-3xl font-bold text-indigo-700 mb-6 text-center">
             Create Your Account
           </h2>
+          <label className="block mb-2 text-sm font-medium text-gray-700">
+            Name
+          </label>
+          <input
+            type="name"
+            placeholder="Enter Name"
+            className="w-full px-4 py-2 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            value={name}
+            onChange={(e) => setname(e.target.value)}
+            required
+          />
 
           <label className="block mb-2 text-sm font-medium text-gray-700">
             Email

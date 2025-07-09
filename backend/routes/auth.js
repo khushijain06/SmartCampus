@@ -4,9 +4,9 @@ const jwt = require("jsonwebtoken")
 const User = require("../models/user")
 
 router.post("/register",async(req,res)=>{
-    const {email,password,role} = req.body;
+    const {name,email,password,role} = req.body;
     const hashedpassword = await bcrypt.hash(password,10);
-    const user = new User({email, password: hashedpassword,role});
+    const user = new User({name,email, password: hashedpassword,role});
     await user.save();
     res.json({message:"User registered successfully"})
 });
@@ -22,6 +22,7 @@ router.post("/login",async (req,res)=>{
     });
     res.json({token,user:{
         id:user._id,
+        name:user.name,
         email:user.email,
         role:user.role
     }})

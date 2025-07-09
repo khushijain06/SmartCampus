@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import AdminDashboard from './pages/AdminDashboard'
 import StudentDashboard from './pages/StudentDashboard'
+import Profile from './pages/Profile'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/register" element={<Register/>}/>
       <Route path='/admindashboard' element={<AdminDashboard/>}/>
       <Route path='/studentdashboard' element={<StudentDashboard/>}/>
+      <Route path='/student/profile' element={<Profile/>}/>
     </Routes>
   )
 }
