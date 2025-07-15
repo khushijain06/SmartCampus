@@ -2,9 +2,14 @@ import {Routes,Route} from 'react-router-dom'
 import Landing from './pages/Landing'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import AdminDashboard from './pages/AdminDashboard'
-import StudentDashboard from './pages/StudentDashboard'
+import AdminDashboard from './Admin/AdminDashboard'
+import StudentDashboard from './Students/StudentDashboard'
 import Profile from './pages/Profile'
+import StudentList from './Students/StudentList'
+import AdminAttendance from './Admin/AdminAttendance'
+import StudentAttendance from './Students/StudentAttendance'
+import AdminPostResult from './Admin/AdminResult'
+import StudentResult from './Students/StudentResult'
 
 function App() {
   return (
@@ -15,6 +20,11 @@ function App() {
       <Route path='/admindashboard' element={<AdminDashboard/>}/>
       <Route path='/studentdashboard' element={<StudentDashboard/>}/>
       <Route path='/student/profile' element={<Profile/>}/>
+      <Route path='/admin/students' element={<StudentList/>}/>
+      <Route path='/admin/attendance' element={<AdminAttendance/>}/>
+       <Route path='/student/attendance' element={<StudentAttendance/>}/>
+       <Route path='/admin/results' element={<AdminPostResult/>}/>
+       <Route path="/student/results" element={<StudentResult/>}/>
     </Routes>
   )
 }

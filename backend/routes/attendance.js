@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Attendance = require("../models/Attendance");
+const Student = require("../models/student")
 const auth = require("../middleware/auth");
 
 // Admin marks attendance
@@ -10,10 +11,17 @@ router.post("/mark", auth, async (req, res) => {
   res.json({ message: "Attendance marked" });
 });
 
-// Student gets their own attendance
-router.get("/me", auth, async (req, res) => {
-  const attendance = await Attendance.find({ studentId: req.user.id });
-  res.json(attendance);
-});
 
-module.exports = router;
+router.get("/me", auth, async (req, res) => {
+  try {
+    const mystudent = await Student.findOne({ userId: req.user.id });
+    if (!mystudent) return res.status(404).json({ message: "Student not found" });
+
+    const attendance = await Attendance.find({ studentId: mystudent._id });
+    res.json(attendance);
+  } catch (err) {
+    console.error("Error fetching attendance", err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+module.exports = router

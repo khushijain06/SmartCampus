@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Result = require("../models/Result");
 const auth = require("../middleware/auth");
+const Student = require("../models/student");
 
 // Admin adds marks
 router.post("/", auth, async (req, res) => {
@@ -12,8 +13,12 @@ router.post("/", auth, async (req, res) => {
 
 // Student views own results
 router.get("/me", auth, async (req, res) => {
-  const result = await Result.find({ studentId: req.user.id });
+  const student = await Student.findOne({ userId: req.user.id });
+  if (!student) return res.status(404).json({ message: "Student not found" });
+  const result = await Result.find({ studentId: student._id });
   res.json(result);
 });
 
+
 module.exports = router;
+  

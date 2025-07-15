@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Homework = require("../models/Homework");
+const Student = require("../models/student")
 const auth = require("../middleware/auth");
 
 // Admin adds homework
@@ -22,8 +23,11 @@ router.put("/:id/complete", auth, async (req, res) => {
 
 // Student views own homework
 router.get("/me", auth, async (req, res) => {
+  const student = await Student.find({
+    userId: req.user.id
+  })
   const homeworks = await Homework.find({
-    $or: [{ studentId: req.user.id }, { studentId: null }]
+    $or: [{ studentId:student._id }, { studentId: null }]
   });
   res.json(homeworks);
 });
