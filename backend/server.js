@@ -11,7 +11,6 @@ app.use("/api/student",require("./routes/student"))
 app.use("/api/attendance", require("./routes/attendance"));
 app.use("/api/results", require("./routes/result"));
 app.use("/api/homework", require("./routes/homework"));
-app.use("/api/subjects", require("./routes/subject"));
 app.use("/api/timetable", require("./routes/timetable"));
 app.use("/api/student-list",require("./routes/studentlist"));
 app.use("/uploads", express.static("uploads")); 

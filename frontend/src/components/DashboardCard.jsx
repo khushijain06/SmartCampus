@@ -4,7 +4,7 @@ const DashboardCard = ({ to, title, description, ringColor = "ring-indigo-300", 
   return (
     <Link
       to={to}
-      className={`bg-white shadow-md p-6 rounded-lg hover:ring-2 ${ringColor}`}
+      className={`bg-white shadow-md p-6 rounded-lg hover:ring-2 hover:animate-pulse ${ringColor}`}
     >
       <h2 className={`text-xl font-semibold ${textColor} mb-2`}>{title}</h2>
       <p>{description}</p>

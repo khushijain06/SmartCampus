@@ -1,5 +1,6 @@
 
 import DashboardCard from "../components/DashboardCard";
+import InforBar from "../components/InfoBar";
 import ProfileIcon from "../components/ProfileIcon";
 const StudentDashboard = () => {
   const name = localStorage.getItem("name");
@@ -12,6 +13,7 @@ const StudentDashboard = () => {
         </h1>
      <ProfileIcon/>
 </div>
+<InforBar content={'Please create your profile first to access your data , Ignore if done '}/>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <DashboardCard
           to="/student/attendance"
