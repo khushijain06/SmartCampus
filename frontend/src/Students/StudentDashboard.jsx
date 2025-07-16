@@ -29,11 +29,6 @@ const StudentDashboard = () => {
           description="Upload homework and check pending tasks."
         />
         <DashboardCard
-          to="/student/subjects"
-          title="Subjects"
-          description="Get notes, syllabus progress, and PDFs."
-        />
-        <DashboardCard
           to="/student/timetable"
           title="Timetable"
           description="View your weekly class schedule."

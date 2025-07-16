@@ -10,6 +10,10 @@ import AdminAttendance from './Admin/AdminAttendance'
 import StudentAttendance from './Students/StudentAttendance'
 import AdminPostResult from './Admin/AdminResult'
 import StudentResult from './Students/StudentResult'
+import AdminHomework from './Admin/AdminHomework'
+import StudentHomework from './Students/StudentHomework'
+import AdminTimetable from './Admin/AdminTimetable'
+import StudentTimetable from './Students/StudentTimetable'
 
 function App() {
   return (
@@ -25,6 +29,10 @@ function App() {
        <Route path='/student/attendance' element={<StudentAttendance/>}/>
        <Route path='/admin/results' element={<AdminPostResult/>}/>
        <Route path="/student/results" element={<StudentResult/>}/>
+       <Route path="admin/homework" element={<AdminHomework/>}/>
+       <Route path='/student/homework' element={<StudentHomework/>}/>
+       <Route path='/admin/timetable' element={<AdminTimetable/>}/>
+       <Route path='/student/timetable' element={<StudentTimetable/>}/>
     </Routes>
   )
 }

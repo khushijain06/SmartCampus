@@ -14,6 +14,9 @@ app.use("/api/homework", require("./routes/homework"));
 app.use("/api/subjects", require("./routes/subject"));
 app.use("/api/timetable", require("./routes/timetable"));
 app.use("/api/student-list",require("./routes/studentlist"));
+app.use("/uploads", express.static("uploads")); 
+app.use("/api/upload", require("./routes/upload")); 
+
 mongoose.connect(process.env.MONGO_URI,{
     useNewUrlParser:true,
     useUnifiedTopology :true

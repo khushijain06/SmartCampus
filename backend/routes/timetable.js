@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const Timetable = require("../models/Timetable");
+const Student = require('../models/student')
 const auth = require("../middleware/auth");
+const { useReducer } = require("react");
 
 // Admin updates timetable
 router.post("/update", auth, async (req, res) => {
@@ -15,8 +17,9 @@ router.post("/update", auth, async (req, res) => {
 
 // Student gets timetable by class/section
 router.get("/", auth, async (req, res) => {
-  const student = req.user;
-  const timetable = await Timetable.findOne({ class: student.class, section: student.section });
+  const user = req.user.id;
+  const student = await Student.findOne({userId:user})
+  const timetable = await Timetable.findOne({ class: student.class });
   res.json(timetable);
 });
 
