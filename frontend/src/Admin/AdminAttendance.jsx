@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 const AdminAttendance = () => {
+  const navigate = useNavigate()
   const [students, setStudents] = useState([]);
   const [attendanceData, setAttendanceData] = useState({});
   const [date, setDate] = useState("");
@@ -50,7 +51,7 @@ const AdminAttendance = () => {
           }
         );
       }
-      alert("Attendance marked successfully!");
+      navigate('/admindashboard')
     } catch (err) {
       console.error(err);
       alert("Error marking attendance");

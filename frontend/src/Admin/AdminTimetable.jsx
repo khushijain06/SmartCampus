@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 const AdminTimetable = () => {
+  const navigate = useNavigate()
   const [form, setForm] = useState({
     class: "",
     section: "",
@@ -36,8 +37,9 @@ const AdminTimetable = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      alert("Timetable updated successfully!");
+      navigate('/admindashboard')
       console.log(res.data);
+
     } catch (err) {
       console.error("Error updating timetable", err);
       alert("Error updating timetable");

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import {useNavigate} from 'react-router-dom'
 const AdminHomework = () => {
+  const navigate = useNavigate()
   const [student, setstudent] = useState([]);
   const [form, setForm] = useState({
     subject: "",
@@ -64,7 +65,7 @@ const AdminHomework = () => {
           }
         );
         console.log(res);
-
+        navigate('/admindashboard')
         setForm({
           subject: "",
           description: "",

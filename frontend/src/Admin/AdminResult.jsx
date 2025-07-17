@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 const AdminPostResult = () => {
+  const navigate = useNavigate()
   const [students, setStudents] = useState([]);
   const [resultData, setResultData] = useState({});
   const [subject, setSubject] = useState("");
@@ -49,8 +50,7 @@ const AdminPostResult = () => {
         );
         console.log("op",res)
       }
-      
-      alert("Results submitted successfully!");
+      navigate('/admindashboard')
     } catch (err) {
       console.error("Error submitting results:", err);
       alert("Failed to submit some results");

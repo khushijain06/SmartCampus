@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import {useNavigate} from 'react-router-dom'
 import axios from "axios";
 
 const Profile = () => {
+  const navigate = useNavigate()
   const token = localStorage.getItem("token");
 
   const [formData, setFormData] = useState({
@@ -82,8 +84,8 @@ const Profile = () => {
         await axios.put(url, formData, { headers });
         alert("Profile updated successfully!");
       }
-
       setIsNew(false); // switch to update mode
+      navigate('/studentdashboard')
     } catch (err) {
       console.error(err);
       alert("Failed to save profile.");
