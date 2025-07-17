@@ -2,7 +2,6 @@ const router = require("express").Router();
 const Timetable = require("../models/Timetable");
 const Student = require('../models/student')
 const auth = require("../middleware/auth");
-const { useReducer } = require("react");
 
 // Admin updates timetable
 router.post("/update", auth, async (req, res) => {
