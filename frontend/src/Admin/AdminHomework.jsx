@@ -65,7 +65,7 @@ const AdminHomework = () => {
           }
         );
         console.log(res);
-        navigate('/admindashboard')
+       
         setForm({
           subject: "",
           description: "",
@@ -73,7 +73,8 @@ const AdminHomework = () => {
           pdfUrl: "",
           studentId: "",
         });
-      }
+      } 
+      navigate('/admindashboard')
     } catch (err) {
       console.error("Assignment error", err);
       alert("Error assigning homework");
