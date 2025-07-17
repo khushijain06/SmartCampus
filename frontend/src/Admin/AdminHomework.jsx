@@ -16,7 +16,7 @@ const AdminHomework = () => {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get(`${import.meta.env.BACKEND_URI}/api/student-list`, {
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URI}/api/student-list`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -55,7 +55,7 @@ const AdminHomework = () => {
     try {
       for (const stu of student) {
         const res = await axios.post(
-          `${import.meta.env.BACKEND_URI}/api/homework/assign`,
+          `${import.meta.env.VITE_BACKEND_URI}/api/homework/assign`,
           {
             ...form,
             studentId: stu._id,

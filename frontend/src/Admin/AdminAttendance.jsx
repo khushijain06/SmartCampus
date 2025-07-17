@@ -12,7 +12,7 @@ const AdminAttendance = () => {
     const fetchStudents = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`${import.meta.env.BACKEND_URI}/api/student-list`, {
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URI}/api/student-list`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setStudents(res.data);

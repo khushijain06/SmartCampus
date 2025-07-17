@@ -5,7 +5,7 @@ const StudentResult = () =>{
     const [loading,setLoading]=useState(true)
     const fetchResult = async()=>{
         try{
-            const res = await axios.get(`${import.meta.env.BACKEND_URI}/api/results/me`,{
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URI}/api/results/me`,{
                 headers:{
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }

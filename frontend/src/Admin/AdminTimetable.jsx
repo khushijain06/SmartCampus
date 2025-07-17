@@ -31,7 +31,7 @@ const AdminTimetable = () => {
   const handleSubmit = async () => {
     try {
       const res = await axios.post(
-        `${import.meta.env.BACKEND_URI}/api/timetable/update`,
+        `${import.meta.env.VITE_BACKEND_URI}/api/timetable/update`,
         form,
         {
           headers: { Authorization: `Bearer ${token}` },

@@ -13,7 +13,7 @@ const Register = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-       await axios.post(`${import.meta.env.BACKEND_URI}/api/auth/register`, {
+       await axios.post(`${import.meta.env.VITE_BACKEND_URI}/api/auth/register`, {
         name,
         email,
         password,
