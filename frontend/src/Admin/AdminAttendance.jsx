@@ -40,7 +40,7 @@ const AdminAttendance = () => {
     try {
       for (const studentId in attendanceData) {
         await axios.post(
-          "http://localhost:5000/api/attendance/mark",
+          `${import.meta.env.VITE_BACKEND_URI}/api/attendance/mark`,
           {
             studentId,
             date,
