@@ -8,7 +8,7 @@ function StudentHomework() {
 
   const fetchHomework = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/homework/me", {
+      const res = await axios.get(`${import.meta.env.BACKEND_URI}/api/homework/me`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +30,7 @@ function StudentHomework() {
     if (status === "completed") {
       try {
         const res = await axios.put(
-          `http://localhost:5000/api/homework/${homeworkId}/complete`,
+          `${import.meta.env.BACKEND_URI}/api/homework/${homeworkId}/complete`,
           {},
           {
             headers: {

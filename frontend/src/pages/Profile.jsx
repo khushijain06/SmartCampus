@@ -30,7 +30,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/student/me", {
+        const res = await axios.get(`${import.meta.env.BACKEND_URI}/api/student/me`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -74,7 +74,7 @@ const Profile = () => {
     e.preventDefault();
 
     try {
-      const url = "http://localhost:5000/api/student/";
+      const url = `${import.meta.env.BACKEND_URI}/api/student/`;
       const headers = { Authorization: `Bearer ${token}` };
 
       if (isNew) {

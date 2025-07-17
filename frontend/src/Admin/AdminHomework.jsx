@@ -16,7 +16,7 @@ const AdminHomework = () => {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/student-list", {
+      const res = await axios.get(`${import.meta.env.BACKEND_URI}/api/student-list`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -40,7 +40,7 @@ const AdminHomework = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/upload/pdf",
+        `${import.meta.env.BACKEND_URI}/api/upload/pdf`,
         formData
       );
       setForm((prev) => ({ ...prev, pdfUrl: res.data.fileUrl }));
@@ -55,7 +55,7 @@ const AdminHomework = () => {
     try {
       for (const stu of student) {
         const res = await axios.post(
-          "http://localhost:5000/api/homework/assign",
+          `${import.meta.env.BACKEND_URI}/api/homework/assign`,
           {
             ...form,
             studentId: stu._id,

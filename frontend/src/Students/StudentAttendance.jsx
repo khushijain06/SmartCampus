@@ -6,7 +6,7 @@ const StudentAttendance = () => {
   const [loading, setLoading] = useState(true);
   const fetchAttendance = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/attendance/me", {
+      const res = await axios.get(`${import.meta.env.BACKEND_URI}/api/attendance/me`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
