@@ -8,13 +8,16 @@ function StudentHomework() {
 
   const fetchHomework = async () => {
     try {
-      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URI}/api/homework/me`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      console.log(res.data);
+      const res = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URI}/api/homework/me`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       sethomework(res.data);
+      console.log(res);
     } catch (err) {
       console.error("Error fetching student homework", err);
     } finally {
@@ -30,7 +33,9 @@ function StudentHomework() {
     if (status === "completed") {
       try {
         const res = await axios.put(
-          `${import.meta.env.VITE_BACKEND_URI}/api/homework/${homeworkId}/complete`,
+          `${
+            import.meta.env.VITE_BACKEND_URI
+          }/api/homework/${homeworkId}/complete`,
           {},
           {
             headers: {

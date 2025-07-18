@@ -23,7 +23,7 @@ router.put("/:id/complete", auth, async (req, res) => {
 
 // Student views own homework
 router.get("/me", auth, async (req, res) => {
-  const student = await Student.find({
+  const student = await Student.findOne({
     userId: req.user.id
   })
   const homeworks = await Homework.find({
